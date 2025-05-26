@@ -1,0 +1,105 @@
+<?php 
+/*
+_____________________________________
+| Name Software: GodSentinel         |
+| Version: 1.0                       |
+| Type Software: Flat                |
+| PHP compatible Version: 7.3 tested |
+| Site: nullsite.altervista.org      |
+| Author: Emiliano Febbi             |
+|____________________________________|
+emilianofebbi.1994 -at- gmail -dot- com
+
+*/
+#Security..
+   if(strpos($_SERVER['PHP_SELF'] , "NoXploiter.php"))  { 
+                                require_once("alarm.php");
+die("<center>Privilege escalation not Allowed.</center>");
+                                                        };
+ 
+# **********************************************************************
+# * NoXploiter version beta plugin developed for GodSentinel v1.0      *
+# * Exploit and URL hacking blocker system;                            *
+# **********************************************************************
+                     ##############
+                     # NoXploiter # beta
+                     ##############
+                     
+                #get_address_attacker;
+          $get_ip_attacker = $_SERVER['REMOTE_ADDR'];
+            $Exploit_Agent = $_SERVER['HTTP_USER_AGENT'];
+               //First control
+         if($Exploit_Agent == '')    {
+die("NoXploiter =>Verify your user agent.<br>connection Blocked."); }
+                 //Wget
+if(stristr($Exploit_Agent , "Wget")) { 
+die("NoXploiter =>Wget files is illegal.");  }
+                 //cURL
+if(stristr($Exploit_Agent , "curl")) { 
+die("NoXploiter =>curl not accepted.");      }
+
+        //File Protection NoXploiter;
+         #Perl
+$expl_ = array("libwww-perl","perl");
+         foreach($expl_ as $exploit)    {
+if (strpos($Exploit_Agent, $exploit))   { 
+    die("NoXploiter =>Perl Exploit blocked."); 
+                                       }; 
+                                       }#1
+         #Python
+$expl_2 = array("python-requests","python");
+          foreach($expl_2 as $exploit2) {
+  if (strpos($Exploit_Agent, $exploit2)){ 
+    die("NoXploiter =>Python Exploit blocked."); 
+                                       }; 
+                                       }#2
+         #ruby
+$expl_3 = array("RestClient","Ruby");
+          foreach($expl_3 as $exploit3) {
+  if (strpos($Exploit_Agent, $exploit3)){ 
+    die("NoXploiter =>ruby Exploit blocked."); 
+                                      }; 
+                                      }#3
+   
+                  
+    //$_GET Protection NoXploiter;  
+    #Perl
+    foreach($_GET as $passageG => $Get_NoX)         {
+    if(!empty($Get_NoX) and (stristr($Get_NoX, "libwww-perl")) or stristr($Get_NoX, "perl"))          { 
+    die("NoXploiter =>Perl Exploit blocked."); 
+    } else {};
+    };#1
+    #Python
+    foreach($_GET as $passageG2 => $Get_NoX2)       {
+    if(!empty($Get_NoX2) and (stristr($Get_NoX2, "python-requests")) or stristr($Get_NoX2, "python")) { 
+    die("NoXploiter =>Python Exploit blocked."); 
+    } else {};
+    };#2
+    #ruby
+    foreach($_GET as $passageG3 => $Get_NoX3)       {
+    if(!empty($Get_NoX3) and (stristr($Get_NoX3, "RestClient")) or stristr($Get_NoX3, "Ruby"))        { 
+    die("NoXploiter =>ruby Exploit blocked."); 
+    } else {};
+    };#3
+    
+    //$_POST Protection NoXploiter;  
+    #Perl
+    foreach($_POST as $passageGp => $Get_NoXp)          {
+    if(!empty($Get_NoXp) and (stristr($Get_NoXp, "libwww-perl")) or stristr($Get_NoXp, "perl"))           { 
+    die("NoXploiter =>Perl Exploit blocked."); 
+    } else {};
+    };#1
+     #Python
+    foreach($_POST as $passageGp2 => $Get_NoX2p2)       {
+    if(!empty($Get_NoX2p2) and (stristr($Get_NoXp2, "python-requests")) or stristr($Get_NoXp2, "python")) { 
+    die("NoXploiter =>Python Exploit blocked."); 
+    } else {};
+    };#2
+     #ruby
+    foreach($_POST as $passageGp3 => $Get_NoX2p3)       {
+    if(!empty($Get_NoX2p3) and (stristr($Get_NoXp3, "RestClient")) or stristr($Get_NoXp3, "Ruby"))        { 
+    die("NoXploiter =>ruby Exploit blocked."); 
+    } else {};
+    };#3
+    #end_plugin;
+?>

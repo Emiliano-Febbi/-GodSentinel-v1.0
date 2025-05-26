@@ -1,0 +1,95 @@
+<html>
+<head><title>#Security_System v1.0 ~ DOC</title></head>
+<body>
+<body bgcolor="black">
+<body text="white">
+<body link="red">
+<body vlink="red">
+
+<center>
+<img src="logo_sentinel.png" alt="panel_banner"><br>
+<h3><font color="red"><i>#INSTALLATION:</i></font></h3>
+GodSentinel installation is simple.<br><br>
+        <i>[Step by Step <font color="red">configuration</font>]:</i><br><br>
+        <div style="width:2000px; height:300px; text-align: left; border:1px solid white;">        
+        <pre>
+<font color="red"><b>[1] -</b></font> Upload all files in the root of your dynamic site, or in the root of your CMS(portal,forum,board etc).
+
+<font color="red"><b>[2] -</b></font> Run the install.php file and choose the password to access the security system panel.
+
+<font color="red"><b>[3] -</b></font> After choosing the password you will have to delete the install.php file, once you have chosen the password you will see the classic link for the automatic deletion of the installation file (click it).
+
+<font color="red"><b>[4] -</b></font> Once you have completed the three previous points you can access the panel (admin.php) with the chosen password, I point out that during the installation the .htaccess file will be automatically created with the sentinel configurations, to be left unchanged.
+
+<font color="red"><b>[5] -</b></font> Last and fundamental point you have to include the sentinel in the file or files that you want to protect / monitor clearly a file with extension ".php" .
+                    If you are using a CMS you must include the sentinel file in a carrier file, that is a file present in all the others, for example: "config.php" , "header.php" , "footer.php" .
+      
+      <font color="red"><i>practical example:</i></font>
+      Open File and write on the first line --> <i>include("godsentinel.php");</i>
+      It is essential to include it at the top of the desired file on the first line.
+        </pre>
+        </div>
+<h3><font color="red"><i>#TECHNICAL INFORMATION:</i></font></h3>
+        <pre>
+#Author: Emiliano Febbi
+#Name software --> GodSentinel
+#Type software --> Flat
+#Software version --> 1.0
+#PHP version tested --> 7.3
+#tests performed --> on SMF 2.14+ezportal 5.6
+#contacts: emilianofebbi.1994 -at- gmail -dot- com
+#Date release --> 23/05/2025
+       </pre>
+<h3><font color="red"><i>#DESCRIPTION:</i></font></h3>
+       <pre>
+The security system panel is very intuitive and easy to use.
+The security system is complete with filters that protect files from multiple types of remote attacks such as:
+<font color="red">[1]</font> SQL injection
+<font color="red">[2]</font> XSS (Cross site scripting)
+<font color="red">[3]</font> LFI ( Local File inclusion )
+<font color="red">[4]</font> RFI ( Remote File inclusion )
+<font color="red">[5]</font> Directory Listing
+<font color="red">[6]</font> Directory Traversal
+Which can filter each request, and are individually manageable from the admin panel.
+       </pre>
+       <div style="width:100px; height:20px; border:1px solid white;">
+       <font color="red"><i>.systems:</i></font>
+       </div>
+       <pre>
+There is also an autonomous system for blocking IP addresses, one for managing logs,
+one for protecting a single table in the database of your choice (users_table) and dedicated admin password management.
+The admin panel is protected from brute force attacks on login, It also has a console inside the panel developed to identify any errors in the security system and in the server and then report them to the administrator.
+       </pre>
+       <div style="width:100px; height:20px; border:1px solid white;">
+       <font color="red"><i>.plugins:</i></font>
+       </div>
+       <pre>
+- <b>NoXploiter</b><font color="lime"> beta</font>: is an exploit blocker,cURL blocker and Wget blocker.
+<font color="red"><i>Is not aggressive.</i></font>
+
+   - <b>CrawlerKiller</b><font color="lime"> beta</font>: bot/spider/crawler blocker, it also blocks connections from Tor browser.
+<font color="red"><i>particular plugin.</i></font>
+
+- <b>Shell Detector</b><font color="lime"> beta</font>: able to find web shells within the same directory as GodSentinel v1.0, complete with independent diagnostics.
+<font color="red"><i>efficient plugin.</i></font>
+
+Of course the plugins are manageable.
+       </pre>
+       <div style="width:100px; height:20px; border:1px solid white;">
+       <font color="red"><i>.banner:</i></font>
+       </div>
+       <pre>
+To insert the internal banner into the page you prefer, just do a simple inclusion. <font color="red">example --></font> include("banner.php");
+You have the ability to format the position with simple html tags.
+
+<font color="red"><i>Personal comment:</i></font>
+A good sentinel, heavy but semi professional. Cybersecurity is an opinion.
+
+       </pre>
+..........................................................................................................................................................................................................................................................................................................................................................................
+<i>GodSentinel copyright ©</i> by Emiliano Febbi<br>
+<a href= "mailto: emilianofebbi.1994@gmail.com">
+<i>emilianofebbi.1994@gmail.com</i></a><br>
+</center>
+</body>
+</html>

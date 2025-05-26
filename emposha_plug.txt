@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>
+  - Shell Detector -GS
+</title>
+</head>
+<body>
+<body bgcolor="black">
+<body text="white">
+<body link="red">
+<body vlink="red">
+<center>
+<? if(strpos($_SERVER['PHP_SELF'] , "emposha_plug.php")) { require_once("alarm.php"); die("<center>Privilege escalation not Allowed.</center>");}; ?>
+<div style="width:126px; height:20px; border:1px solid lime;">
+<small>#shell_detector_plugin;</small></div><div style='float: right; text-align: right;'><font color="lime">beta</font></div>
+<pre><h3>[diagnosis]:</h3></pre>
+_________________<br>
+<?php
+/*
+_____________________________________
+| Name Software: GodSentinel         |
+| Version: 1.0                       |
+| Type Software: Flat                |
+| PHP compatible Version: 7.3 tested |
+| Site: nullsite.altervista.org      |
+| Author: Emiliano Febbi             |
+|____________________________________|
+emilianofebbi.1994 -at- gmail -dot- com
+
+*/
+# **********************************************************************
+# * shell detector version beta plugin developed for GodSentinel v1.0  *
+# **********************************************************************
+
+#only inspired by emposha;
+#Regex_based detection;
+                                 $this_DIR = './';
+              $file1_k = scandir($this_DIR,1);
+
+          foreach ($file1_k as $x => $my_files_k) {
+if(strlen($my_files_k) > 3 && strpos($my_files_k, '.php') !== false) {
+         $read_my_files = fopen('./'.$my_files_k, 'r');
+
+                     while(!feof($read_my_files)) {
+                $find_ws = fgets($read_my_files);
+#bad_functions_finder;
+if(preg_match("/eval\((base64|eval|gzinflate|gzuncompress|gzinflate\$_|\$\$|\$[A-Za-z_0-9\{]*(\(|\{|\[))/i", $find_ws) && !preg_match('#(.*)\[(.*?)\]\[(.*?)\]\[(.*?)\]#', $find_ws))            
+    {             
+print str_replace("emposha_plug.php","","<br><i>current dir not secure</i> :(<br><b>Security problem level:</b> <font color=orange>Middle</font> - <i>Probable eval(); found.</i><br> [$my_files_k]");
+break;
+    }//1
+#shell_finder;    
+if(preg_match('#(.*)\[(.*?)\]\[(.*?)\]\[(.*?)\]#', $find_ws))
+    {
+print str_replace("emposha_plug.php","","<br><i>current dir not secure</i> :(<br><b> Security problem level:</b> <font color=red>high</font> : <i>There are critical problems! - Probable shell detected.</i><br> [$my_files_k]");
+break;
+    }//2
+    };
+fclose($read_my_files);      
+                     };
+                     };
+echo "<br>................................................................................................";
+echo "....................................................................................................";
+echo "....................................................................................................<br>";
+#strings_based detection;
+   print "<pre><h3>[strings_based_scanner]:</h3></pre>";
+                      print_r("_________________<br>");
+
+                             $filedb = file("file.db");
+          foreach($filedb as $abcJ => $filedb2)       {
+
+                                  $this_DIR_new = './';
+              $file1_ko = scandir($this_DIR_new,1);
+
+          foreach ($file1_ko as $xyJ => $my_files_ko) {
+  if(strlen($my_files_ko) > 3 && strpos($my_files_ko, '.php') !== false) {
+       $read_my_files_prot = fopen('./'.$my_files_ko, 'r');
+
+                     while(!feof($read_my_files_prot)) {
+                $find_ws = fgets($read_my_files_prot);
+                   if(stristr($find_ws, $filedb2))     {  
+                $pos = strpos($find_ws, $filedb2);
+                print "<br><i>Filename:</i> $my_files_ko /  ";
+                print_r("<b>suspicious code detected -> </b><font color=red>");
+                print substr($filedb2, $pos);
+                          print_r("</font>");
+                                       break;
+                } 
+                 }
+                  };                
+                }                
+                 fclose($read_my_files_prot);                 
+                }#end_plugin; 
+echo "<br>................................................................................................";
+echo "....................................................................................................";
+echo "....................................................................................................<br>";
+?>

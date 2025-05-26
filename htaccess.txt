@@ -1,0 +1,24 @@
+<Files "table_protected.jpg">  
+  Require all denied
+</Files>
+<Files "address_blocked.php">  
+  Require all denied
+</Files>
+<Files "gsentinel_logs.php">  
+  Require all denied
+</Files>
+<Files "file.db">  
+  Require all denied
+</Files>
+<Files "emposha_plug.txt">  
+  Require all denied
+</Files>
+<Files "ck_plug.txt">  
+  Require all denied
+</Files>
+<Files "NoX_plug.txt">  
+  Require all denied
+</Files>
+<Files "brute_force.htm">  
+  Require all denied
+</Files>

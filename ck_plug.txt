@@ -1,0 +1,112 @@
+<?php
+/*
+_____________________________________
+| Name Software: GodSentinel         |
+| Version: 1.0                       |
+| Type Software: Flat                |
+| PHP compatible Version: 7.3 tested |
+| Site: nullsite.altervista.org      |
+| Author: Emiliano Febbi             |
+|____________________________________|
+emilianofebbi.1994 -at- gmail -dot- com
+
+*/
+#Security..
+   if(strpos($_SERVER['PHP_SELF'] , "crawler_killer.php")) { 
+                                require_once("alarm.php");
+die("<center>Privilege escalation not Allowed.</center>");
+                                                        };
+ 
+# **********************************************************************
+# * Crawler_Killer version beta plugin developed for GodSentinel v1.0  *
+# * spider/bot/crawler blocker system;                                 *
+# **********************************************************************
+
+#Graphic interface;
+$crwk_skull_  = '                  
+                  .xUHWH!! !!?M88WHX:.
+                .X*#M@$!!  !X!M$$$$$$WWx:.
+               :!!!!!!?H! :!$!$$$$$$$$$$8X:
+              !!~  ~:~!! :~!$!#$$$$$$$$$$8X:
+             :!~::!H!<   ~.U$X!?R$$$$$$$$MM!
+             ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!
+               !:~~~ .:!M"T#$$$$WX??#MRRMMM!
+               ~?WuxiW*`   `"#$$$$8!!!!??!!!
+             :X- M$$$$       `"T#$T~!8$WUXU~
+            :%`  ~#$$$m:        ~!~ ?$$$$$$
+          :!`.-   ~T$$$$8xx.  .xWW- ~""##*"
+.....   -~~:<` !    ~?T#$$@@W@*?$$      /`
+W$@@M!!! .!~~ !!     .:XUW$W!~ `"~:    :
+#"~~`.:x%`!!  !H:   !WM$$$$Ti.: .!WUn+!`
+:::~:!!`:X~ .: ?H.!u "$$$B$$$!W:U!T$$M~
+.~~   :X@!.-~   ?@WTWo("*$$$W$TH$! `
+Wi.~!X$?!-~    : ?$$$B$Wu("**$RM!
+$R@i.~~ !     :   ~$$$$$B$$en:``
+?MXT@Wx.~    :     ~"##*$$$$M~';
+
+$Graphic_ = '
+<html>
+<head>
+<title>[~]CrawlerKiller[~]</title>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+</head><body><body bgcolor="black"><body text="white"><body link="red"><body vlink="red">
+<div style="width:100%;max-width:300px;border-radius:10px;border:1px red solid;overflow:hidden; float: right; text-align: right;">
+<div style="background-color:#000000;padding:5px">
+<i>GodSentinel copyright ©</i> by Emiliano Febbi<br><a href= "mailto: emilianofebbi.1994@gmail.com">
+<i>emilianofebbi.1994@gmail.com</i></a><br></div></div><br><br><br><center>
+<h2><i><font color="red">ALERT Message:</font></i></h2><pre>    Your connection is not accepted.</pre>
+<pre>'.$crwk_skull_.' <br><font color=red>[CrawlerKiller beta]</font></pre>';
+
+//start code;
+               $you = $_SERVER['REMOTE_ADDR'];
+    $BAD_User_Agent = $_SERVER['HTTP_USER_AGENT'];
+#empty value find;
+if ($BAD_User_Agent == '') {
+  print_r("$Graphic_<br>");
+die("<b>Crawler_Killer Say:</b> Empty User Agent Not allowed.");
+  }
+#Crawler_Killer second verify;
+#Crawler_Killer Class_;
+   if (stristr($BAD_User_Agent, "Google")    or stristr($BAD_User_Agent, "")    
+    or stristr($BAD_User_Agent, "Yahoo!")    or  stristr($BAD_User_Agent, "bingbot")
+    or stristr($BAD_User_Agent, "Python")    or stristr($BAD_User_Agent, "libwww")
+    or stristr($BAD_User_Agent, "msn")       or stristr($BAD_User_Agent, "Crawler")
+    or stristr($BAD_User_Agent, "Ask")       or stristr($BAD_User_Agent, "Crawl")
+    or stristr($BAD_User_Agent,"bot")        or stristr($BAD_User_Agent, "Spider")
+    or stristr($BAD_User_Agent,"findlink")   or stristr($BAD_User_Agent, "http")
+    or stristr($BAD_User_Agent,".com")       or stristr($BAD_User_Agent, ".html"))
+    {
+                       #getting_bot_info;
+               $ck_logs1 = 'ck_logs.php';
+ $write_into_ckl = fopen($ck_logs1, 'a');
+ fwrite($write_into_ckl, "<? \n$you\n");
+ fclose($write_into_ckl);
+                                 
+                      
+    print_r("$Graphic_");
+    print_r("<b><div style='width:350px; height:65px; border:1px solid red;'>");
+    print_r(strip_tags("Crawler_Killer Say: $BAD_User_Agent Blocked."));
+    die("</b></div></center></body></html>");
+                                           };
+#_____________________________________________________                                           
+#Crawler_Killer Tor Browser blocker dedicate block_;  |
+#Extrapolate Connection;
+       $TOR = $_SERVER['REMOTE_ADDR'];
+  $tor_kill = gethostbyaddr( "$TOR" );
+  
+#Verifying and blocking Tor browser.
+$list_ = array("tor-exit","tor","-exit","tor","torproxy.xyz","r0cket","1337","tor","Tor","torproxy");
+    foreach($list_ as $list2)    {
+if (strpos($tor_kill, $list2))   {
+
+                   #getting_bad_user_info;
+                $ck_logs2 = 'ck_logs.php';
+ $write_into_ckl2 = fopen($ck_logs2, 'a');
+  fwrite($write_into_ckl2, "<? \n$TOR\n");
+  fclose($write_into_ckl2);
+                                                                                print_r("$Graphic_");
+                            print_r("<div style='width:300px; height:30px; border:1px solid red;'>");
+  die("Tor Browser is not allowed.</div></center></body></html>");
+                                   }
+                                   }#end_plugin;
+?>
